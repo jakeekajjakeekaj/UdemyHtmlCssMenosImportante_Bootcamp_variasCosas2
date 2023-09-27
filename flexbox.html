@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>flexbox</title>
+    <style>
+        /* LO DE ABAJO SIRVE PARA QUE SE INCLUYA DENTRO DE LAS DIMENSIONES A LOS BORDES Y QUE DE ESTA MANERA NO SE SALTE UNA LINEA DE MANERA INNECESARIA */
+        *{
+            box-sizing: border-box;
+        }
+        body{
+            padding: 0;
+            margin: 0;
+        }
+        #layout{
+            display: flex;
+            flex-wrap: wrap;
+        }
+        #nav{
+            flex-basis: 100%;
+            border-bottom: 1px solid #aaa;
+            padding: 20px;
+        }
+        #sidebar{
+            flex-basis: 20%;
+            border-right: 1px solid #aaa;
+            padding: 20px;
+            border-bottom: 1px solid #aaa;
+        }
+        #content{
+            flex-basis: 80%;
+            /* border: 1px solid red; */
+            padding: 20px;
+            border-bottom: 1px solid #aaa;
+        }
+        /* LO DE ABAJO INDICA QUE LAS TABLAS SE MOSTARÁN AHORA DE FORMA HORIZONTAL AL TENER MENOS DE 640PX */
+        @media(max-width: 640px){
+            #sidebar, #content{
+                flex-basis: 100%;
+                border-right: 0;
+            }
+        }
+        /* LO DE ABAJO OCULTA A LA SIDEBAR */
+        @media(max-width: 475px){
+            #sidebar{
+                display: none;
+            }
+        }
+    </style>
+</head>
+<body>
+    <h4><a href="index.html" target="_blank"><b>REGRESAR A INDEX</b></a></h4>
+    
+    <hr>
+    <h5>SE INCLUYE EJEMPLO RESPONSIVO, DEBIDO A QUE EN EL MOMENTO EN QUE LA TABLA SE EMPIEZA A DEFORMAR, SE PUSO QUE A PARTR DE 640PX PARA ABAJO, LA TABLA SE COLOQUE DE OTRA FORMA PARA EVITAR DEFOMRACIONES, ASÍ MISMO LA SIDEBAR DESAPARECERÁ AL TENER MENOS DE 475PX</h5>
+    <div id="layout">
+        <div id="nav">
+            Navigation in here
+        </div>
+        <div id="sidebar">
+            Sidebar in here
+        </div>
+        <div id="content">
+            Content in here
+        </div>
+    </div>
+
+</body>
+</html>
